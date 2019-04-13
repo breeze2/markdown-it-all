@@ -1,16 +1,5 @@
 import MarkdownIt from 'markdown-it'
-import mdAbbr from 'markdown-it-abbr'
-import mdContainer from 'markdown-it-container'
-import mdEmoji from 'markdown-it-emoji'
-import mdFootnote from 'markdown-it-footnote'
-import mdIns from 'markdown-it-ins'
-import mdLatex from 'markdown-it-latex'
-import mdMark from 'markdown-it-mark'
-import mdMermaid from 'markdown-it-mermaid'
-import mdSourceMap from 'markdown-it-source-map'
-import mdSub from 'markdown-it-sub'
-import mdSup from 'markdown-it-sup'
-import mdTaskList from 'markdown-it-task-list'
+import MarkdownItPlugins from './MarkdownItPlugins'
 
 import { highlightMaker } from './highlightMaker'
 
@@ -25,21 +14,27 @@ export function markdownItAll (md?: MarkdownIt) {
         linkify: true,
         typographer: true,
     })
-    md.use(mdAbbr)
-        .use(mdSub)
-        .use(mdSup)
-        .use(mdIns)
-        .use(mdMark)
-        .use(mdLatex)
-        .use(mdEmoji)
-        .use(mdMermaid)
-        .use(mdTaskList)
-        .use(mdFootnote)
-        .use(mdSourceMap)
-        .use(mdContainer, 'danger')
-        .use(mdContainer, 'success')
-        .use(mdContainer, 'warning')
-        .use(mdContainer, 'info')
+
+    for (const key in MarkdownItPlugins) {
+        if (key === 'customContainer') {
+            md.use(MarkdownItPlugins.customContainer, 'danger')
+            md.use(MarkdownItPlugins.customContainer, 'success')
+            md.use(MarkdownItPlugins.customContainer, 'warning')
+            md.use(MarkdownItPlugins.customContainer, 'info')
+        } else if (key === 'githubToc') {
+            md.use(MarkdownItPlugins.githubToc, {
+                anchorClassName: 'anchor',
+                anchorLinkSpace: false,
+                anchorLinkSymbol: '',
+                anchorLinkSymbolClassName: 'octicon octicon-link',
+                tocClassName: 'toc',
+                tocFirstLevel: 2,
+                tocLastLevel: 3,
+            })
+        } else {
+            md.use(MarkdownItPlugins[key])
+        }
+    }
 
     return md
 }
