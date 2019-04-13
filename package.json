@@ -1,6 +1,13 @@
 {
   "name": "markdown-it-all",
-  "version": "0.1.0",
+  "version": "0.1.1",
+  "keywords": [
+    "markdown",
+    "markdown-it",
+    "markdown render",
+    "markdown-it plugins",
+    "markdown-it-all"
+  ],
   "description": "An integration of markdown-it and plugins.",
   "private": false,
   "author": {
