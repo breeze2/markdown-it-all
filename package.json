@@ -1,8 +1,8 @@
 {
   "name": "markdown-it-all",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "An integration of markdown-it and plugins.",
-  "private": true,
+  "private": false,
   "author": {
     "email": "805511939@qq.com",
     "name": "breezelin",
@@ -14,7 +14,11 @@
   "scripts": {
     "start": "tsc -w",
     "build": "tsc",
-    "test": "jest --config jestconfig.json"
+    "test": "jest --config jestconfig.json",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "yarn build",
+    "prepublishOnly": "yarn test",
+    "preversion": "yarn lint"
   },
   "dependencies": {
     "highlight.js": "^9.15.6",
