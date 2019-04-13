@@ -1,6 +1,6 @@
 {
   "name": "markdown-it-all",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "keywords": [
     "markdown",
     "markdown-it",
@@ -16,8 +16,12 @@
     "url": "https://github.com/breeze2"
   },
   "license": "MIT",
-  "main": "build/index.js",
-  "types": "build/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
     "start": "tsc -w",
     "build": "tsc",
