@@ -9,14 +9,20 @@
     "url": "https://github.com/breeze2"
   },
   "license": "MIT",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "start": "tsc -w",
+    "build": "tsc",
+    "test": "jest --config jestconfig.json"
+  },
   "dependencies": {
-    "@types/highlight.js": "^9.12.3",
-    "@types/markdown-it": "^0.0.7",
-    "@types/markdown-it-container": "^2.0.2",
     "highlight.js": "^9.15.6",
     "markdown-it": "^8.4.2",
+    "markdown-it-abbr": "^1.0.4",
     "markdown-it-container": "^2.0.0",
     "markdown-it-emoji": "^1.4.0",
+    "markdown-it-footnote": "^3.0.1",
     "markdown-it-ins": "^2.0.0",
     "markdown-it-latex": "^0.2.0",
     "markdown-it-mark": "^2.0.0",
@@ -27,6 +33,12 @@
     "markdown-it-task-list": "^0.1.2"
   },
   "devDependencies": {
+    "@types/highlight.js": "^9.12.3",
+    "@types/jest": "^24.0.11",
+    "@types/markdown-it": "^0.0.7",
+    "@types/markdown-it-container": "^2.0.2",
+    "jest": "^24.7.1",
+    "ts-jest": "^24.0.2",
     "tslint": "^5.15.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-eslint-rules": "^5.4.0",

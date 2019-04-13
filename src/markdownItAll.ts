@@ -1,6 +1,8 @@
 import MarkdownIt from 'markdown-it'
+import mdAbbr from 'markdown-it-abbr'
 import mdContainer from 'markdown-it-container'
 import mdEmoji from 'markdown-it-emoji'
+import mdFootnote from 'markdown-it-footnote'
 import mdIns from 'markdown-it-ins'
 import mdLatex from 'markdown-it-latex'
 import mdMark from 'markdown-it-mark'
@@ -23,19 +25,21 @@ export function markdownItAll (md?: MarkdownIt) {
         linkify: true,
         typographer: true,
     })
-    md.use(mdSub)
+    md.use(mdAbbr)
+        .use(mdSub)
         .use(mdSup)
         .use(mdIns)
-        .use(mdLatex)
         .use(mdMark)
+        .use(mdLatex)
+        .use(mdEmoji)
         .use(mdMermaid)
         .use(mdTaskList)
+        .use(mdFootnote)
+        .use(mdSourceMap)
         .use(mdContainer, 'danger')
         .use(mdContainer, 'success')
         .use(mdContainer, 'warning')
         .use(mdContainer, 'info')
-        .use(mdEmoji)
-        .use(mdSourceMap)
 
     return md
 }
