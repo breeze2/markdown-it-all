@@ -1,12 +1,6 @@
-import HighlightJs from 'highlight.js'
 import MarkdownIt from 'markdown-it'
-import mdContainer from 'markdown-it-container'
-import mdEmoji from 'markdown-it-emoji'
-import mdIns from 'markdown-it-ins'
-import mdLatex from 'markdown-it-latex'
-import mdMark from 'markdown-it-mark'
-import mdMermaid from 'markdown-it-mermaid'
-import mdSourceMap from 'markdown-it-source-map'
-import mdSub from 'markdown-it-sub'
-import mdSup from 'markdown-it-sup'
-import mdTaskList from 'markdown-it-task-list'
+
+export * from './highlightMaker'
+export * from './markdownItAll'
+
+export default MarkdownIt

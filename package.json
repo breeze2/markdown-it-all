@@ -2,10 +2,17 @@
   "name": "markdown-it-all",
   "version": "0.0.1",
   "description": "An integration of markdown-it and plugins.",
-  "main": "index.js",
-  "author": "breezelin",
+  "private": true,
+  "author": {
+    "email": "805511939@qq.com",
+    "name": "breezelin",
+    "url": "https://github.com/breeze2"
+  },
   "license": "MIT",
   "dependencies": {
+    "@types/highlight.js": "^9.12.3",
+    "@types/markdown-it": "^0.0.7",
+    "@types/markdown-it-container": "^2.0.2",
     "highlight.js": "^9.15.6",
     "markdown-it": "^8.4.2",
     "markdown-it-container": "^2.0.0",
@@ -20,6 +27,9 @@
     "markdown-it-task-list": "^0.1.2"
   },
   "devDependencies": {
+    "tslint": "^5.15.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-eslint-rules": "^5.4.0",
     "typescript": "^3.4.3"
   }
 }

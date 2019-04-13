@@ -1,8 +1,21 @@
 {
     "compilerOptions": {
-        "module": "commonjs",
+        "typeRoots": [
+            "./src/@types",
+            "./node_modules/@types"
+        ],
         "target": "es5",
-        "noImplicitAny": false,
-        "sourceMap": false
-    }
+        "module": "commonjs",
+        "declaration": true,
+        "esModuleInterop": true,
+        "outDir": "./lib",
+        "strict": true
+    },
+    "exclude": [
+        "node_modules",
+        "**/__tests__/*"
+    ],
+    "include": [
+        "src"
+    ],
 }
