@@ -1,0 +1,25 @@
+{
+  "name": "markdown-it-all",
+  "version": "0.0.1",
+  "description": "An integration of markdown-it and plugins.",
+  "main": "index.js",
+  "author": "breezelin",
+  "license": "MIT",
+  "dependencies": {
+    "highlight.js": "^9.15.6",
+    "markdown-it": "^8.4.2",
+    "markdown-it-container": "^2.0.0",
+    "markdown-it-emoji": "^1.4.0",
+    "markdown-it-ins": "^2.0.0",
+    "markdown-it-latex": "^0.2.0",
+    "markdown-it-mark": "^2.0.0",
+    "markdown-it-mermaid": "^0.2.5",
+    "markdown-it-source-map": "^0.1.1",
+    "markdown-it-sub": "^1.0.0",
+    "markdown-it-sup": "^1.0.0",
+    "markdown-it-task-list": "^0.1.2"
+  },
+  "devDependencies": {
+    "typescript": "^3.4.3"
+  }
+}
