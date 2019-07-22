@@ -15,7 +15,6 @@ after_success:
   - yarn test --coverage
   - cat ./coverage/lcov.info | yarn coveralls
 deploy:
-  if: branch =~ ^v[\d\.\-]+
   skip_cleanup: true
   provider: npm
   email: "$NPM_EMAIL"
