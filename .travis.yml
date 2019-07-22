@@ -22,3 +22,5 @@ deploy:
   skip_cleanup: true
   email: "$NPM_EMAIL"
   api_key: "$NPM_KEY"
+  on:
+    tags: true
