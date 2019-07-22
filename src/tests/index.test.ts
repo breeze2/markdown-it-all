@@ -56,6 +56,7 @@ function sum(a, b) {
 </code></pre>
 `)
 
-        console.log(highlightMaker(md)('undefinded', 'undefinded'))
+        html = highlightMaker(md)('undefinded', 'undefinded')
+        expect(html).toBe('<pre class="hljs"><code>undefinded</code></pre>')
     })
 })
