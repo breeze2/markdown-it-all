@@ -16,7 +16,6 @@ after_success:
   - cat ./coverage/lcov.info | yarn coveralls
 deploy:
   - provider: npm
-    if: branch =~ /^v[\d\.\-]+/
     skip_cleanup: true
     email: "$NPM_EMAIL"
     api_key: "$NPM_KEY"
