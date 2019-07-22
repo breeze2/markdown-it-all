@@ -1,19 +1,20 @@
 import MarkdownIt from 'markdown-it'
+import { IMarkdownItGithubTocOptions } from 'markdown-it-github-toc'
 import MarkdownItPlugins from './MarkdownItPlugins'
 
 import { highlightMaker } from './highlightMaker'
 
-export function markdownItAll (md?: MarkdownIt) {
+export function markdownItAll(md?: MarkdownIt, mdOptions?: MarkdownIt.Options) {
     if (!md) {
         md = new MarkdownIt()
+        md.set(mdOptions || {
+            breaks: true,
+            highlight: highlightMaker(md),
+            html: true,
+            linkify: true,
+            typographer: true,
+        })
     }
-    md.set({
-        breaks: true,
-        highlight: highlightMaker(md),
-        html: true,
-        linkify: true,
-        typographer: true,
-    })
 
     for (const key in MarkdownItPlugins) {
         if (key === 'customContainer') {
@@ -22,7 +23,7 @@ export function markdownItAll (md?: MarkdownIt) {
             md.use(MarkdownItPlugins.customContainer, 'warning')
             md.use(MarkdownItPlugins.customContainer, 'info')
         } else if (key === 'githubToc') {
-            md.use(MarkdownItPlugins.githubToc, {
+            const opt: IMarkdownItGithubTocOptions = {
                 anchorClassName: 'anchor',
                 anchorLinkSpace: false,
                 anchorLinkSymbol: '',
@@ -30,7 +31,8 @@ export function markdownItAll (md?: MarkdownIt) {
                 tocClassName: 'toc',
                 tocFirstLevel: 2,
                 tocLastLevel: 3,
-            })
+            }
+            md.use(MarkdownItPlugins.githubToc, opt)
         } else {
             md.use(MarkdownItPlugins[key])
         }
