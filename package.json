@@ -15,6 +15,14 @@
     "name": "breezelin",
     "url": "https://github.com/breeze2"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/breeze2/markdown-it-all.git"
+  },
+  "bugs": {
+    "url": "https://github.com/breeze2/markdown-it-all/issues"
+  },
+  "homepage": "https://github.com/breeze2/markdown-it-all",
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
