@@ -1,5 +1,8 @@
 language: node_js
 node_js: stable
+branches:
+  only:
+    - master
 cache:
   apt: true
   npm: true
@@ -8,19 +11,13 @@ cache:
 install:
   - npm i yarn -g
   - yarn install
-jobs:
-  include:
-    - stage: test
-      script:
-        - yarn build
-        - yarn test
-      after_success:
-        - yarn test --coverage
-        - cat ./coverage/lcov.info | yarn coveralls
-    - stage: deploy
-      deploy:
-        provider: npm
-        email: "$NPM_EMAIL"
-        api_key: "$NPM_KEY"
-        on:
-          tags: true
+script:
+  - yarn build
+  - yarn test
+after_success:
+  - yarn test --coverage
+  - cat ./coverage/lcov.info | yarn coveralls
+deploy:
+  provider: npm
+  email: "$NPM_EMAIL"
+  api_key: "$NPM_KEY"
