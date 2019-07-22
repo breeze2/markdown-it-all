@@ -1,3 +1,4 @@
+[![npm version](https://badge.fury.io/js/markdown-it-all.svg)](https://www.npmjs.com/markdown-it-all)
 [![Build Status](https://travis-ci.org/breeze2/markdown-it-all.svg?branch=master)](https://travis-ci.org/breeze2/markdown-it-all)
 [![Coverage Status](https://coveralls.io/repos/github/breeze2/markdown-it-all/badge.svg?branch=master)](https://coveralls.io/github/breeze2/markdown-it-all?branch=master)
 
