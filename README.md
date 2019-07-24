@@ -14,7 +14,7 @@ $ yarn add markdown-it-all
 
 ## Usage
 
-### Simple
+### Sample
 
 ```js
 import MarkdownIt, { markdownItAll, markdownItCustom } from '../index'
@@ -40,14 +40,13 @@ console.log(html)
 ### Interface
 
 ```ts
-function markdownItCustom (options: ICustomPlugins): MarkdownIt
 interface ICustomPlugins {
     abbreviation?: true,
     customContainer?: string[],
     definitionList?: true,
     emoji?: true,
     footnote?: true,
-    githubToc?: GithubTocOptions,
+    githubToc?: IMarkdownItGithubTocOptions,
     insert?: true,
     latex?: true,
     mark?: true,
@@ -57,6 +56,7 @@ interface ICustomPlugins {
     superscript?: true,
     taskList?: true,
 }
+function markdownItCustom (plugins: ICustomPlugins, md?: MarkdownIt, mdOptions?: MarkdownIt.Options): MarkdownIt
 
 ```
 
