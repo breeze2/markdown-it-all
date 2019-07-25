@@ -1,14 +1,14 @@
 import MarkdownIt, { highlightCustomMaker, highlightMaker, markdownItAll, markdownItCustom } from '../index'
 
 describe('Markdown it All Testing', () => {
-    test("test markdownIt", () => {
+    test('test markdownIt', () => {
         const md = new MarkdownIt()
         const content = '# markdown-it rulezz!\n'
         const html = md.render(content)
         expect(html).toBe('<h1>markdown-it rulezz!</h1>\n')
     })
 
-    test("test markdownItAll", () => {
+    test('test markdownItAll', () => {
         const md = markdownItAll()
         const content = '# markdown-it-all rulezz!\n'
         let html = md.render(content)
@@ -26,7 +26,7 @@ function sum(a, b) {
 `)
     })
 
-    test("test markdownItCustom", () => {
+    test('test markdownItCustom', () => {
         const content = '# markdown-it-custom rulezz!\n'
         const md = markdownItCustom({ sourceMap: true, customContainer: ['danger'], githubToc: true })
         let html = md.render(content)
@@ -59,4 +59,17 @@ function sum(a, b) {
         html = highlightMaker(md)('undefinded', 'undefinded')
         expect(html).toBe('<pre class="hljs"><code>undefinded</code></pre>')
     })
+
+    test('test misc', () => {
+        const md = new MarkdownIt()
+        const mdAll = markdownItAll(new MarkdownIt())
+        const mdCustom = markdownItCustom({githubToc: undefined}, new MarkdownIt())
+        const content = '# markdown-it rulezz!\n'
+        const html = md.render(content)
+        const htmlAll = mdAll.render(content)
+        const htmlCustom = mdCustom.render(content)
+        expect(htmlAll).toBe('<h1 id="markdown-it-rulezz" data-source-line="1"><a class="anchor" href="#markdown-it-rulezz"><span class="octicon octicon-link"></span></a>markdown-it rulezz!</h1>\n')
+        expect(html).toBe(htmlCustom)
+    })
+
 })

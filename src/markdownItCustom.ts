@@ -26,17 +26,13 @@ export function markdownItCustom(plugins: ICustomPlugins, md?: MarkdownIt, mdOpt
     }
     for (const key in plugins) {
         if (key === 'customContainer' && plugins.customContainer) {
-            plugins.customContainer.forEach(el => {
-                if (md) {
-                    md.use(MarkdownItPlugins.customContainer, el)
-                }
-            })
+            for (const container of plugins.customContainer) {
+                md.use(MarkdownItPlugins.customContainer, container)
+            }
         } else if (key === 'githubToc' && plugins.githubToc) {
             md.use(MarkdownItPlugins.githubToc, plugins.githubToc)
-        } else {
-            if (key in MarkdownItPlugins && !!(plugins as any)[key]) {
-                md.use(MarkdownItPlugins[key])
-            }
+        } else if (key in MarkdownItPlugins && !!(plugins as any)[key]) {
+            md.use(MarkdownItPlugins[key])
         }
     }
     return md
